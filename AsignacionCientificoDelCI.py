@@ -3,3 +3,9 @@ class AsignacionCientificoDelCI:
         self.fechaDesde = fechaDesde
         self.fechaHasta = fechaHasta
         pass
+
+    def conocerCientificoAsignado():
+        pass
+
+    def buscarCientificoAsignado():
+        pass

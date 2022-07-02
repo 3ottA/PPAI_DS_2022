@@ -4,3 +4,13 @@ class AsignacionResponsableTecnicoRT:
         self.fechaHora = fechaHora
         self.recursos = recursos
         pass
+
+    def conocerResponsableRT():
+        validar()
+        esDisponible()
+        getDatos()
+        ordenar()
+        pass
+
+    def estasEnEstadoDisponible():
+        pass

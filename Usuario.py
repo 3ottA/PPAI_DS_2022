@@ -4,3 +4,10 @@ class Usuario:
         self.clave = clave
         self.habilitado = habilitado
         pass
+    # metodo toString, printea atributos de objeto
+
+    def __str__(self):
+        return "Usuario: "+self.usuario+"\nClave: "+str(self.clave)
+
+    def getUsuario():
+        pass

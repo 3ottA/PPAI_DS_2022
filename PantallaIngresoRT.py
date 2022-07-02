@@ -1,12 +1,32 @@
-from tkinter import *
+
+from GestorIngresoMantCorrectivo import GestorIngresoMantCorrectivo
 
 
 class PantallaIngresoRT:
-    def __init__(self, ventana):
-        self.ventana = ventana
-        self.ventana.title("Ingreso de RT")
-        self.ventana.geometry("400x200")
-        self.ventana.resizable(0, 0)
-        self.ventana.config(bg="white")
+    def __init__(self):
+        pass
 
-        self.ventana.mainloop()
+    def registrarIngresoCorrectivo(self):
+        gestorIngresoRespTecRT = GestorIngresoMantCorrectivo().opcionRegistrarIngreso()
+        print(str(gestorIngresoRespTecRT))
+
+    def habilitarVentana():
+        pass
+
+    def mostrarRT():
+        pass
+
+    def tomarSeleccionRT():
+        pass
+
+    def solicitarFechaFin():
+        pass
+
+    def tomarSeleccionFechaFin():
+        pass
+
+    def solicitarRazon():
+        pass
+
+    def tomarRazon():
+        pass

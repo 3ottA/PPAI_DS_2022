@@ -6,3 +6,18 @@ class Turno:
         self.fechaHoraFin = fechaHoraFin
         self.actual = actual
         self.cambioEstadoFin = cambioEstadoFin
+
+    def obtenerEstadoActual():
+        pass
+
+    def generarGrillaTurnosPendienteYConfirmado():
+        pass
+
+    def getFechaHoraInicio():
+        pass
+
+    def getFechaHoraFin():
+        pass
+
+    def mostrarTurno():
+        pass

@@ -8,3 +8,15 @@ class RecursoTecnologico:
         self.duracionMantenimientoPrev = duracionMantenimientoPrev
         self.fraccionHorarioTurnos = fraccionHorarioTurnos
         pass
+
+    def buscarEstadoActual():
+        pass
+
+    def getNroRT():
+        pass
+
+    def mostrarDatosRT():
+        pass
+
+    def esConfirmadoOPendiente():
+        pass

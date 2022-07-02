@@ -3,19 +3,17 @@ class CambioEstadoRT:
         self.fechaHoraDesde = fechaHoraDesde
         self.fechaHoraHasta = fechaHoraHasta
 
-    # def new():
-    #     nosecomovergasehace
+    def esEstadoActual():  # *
+        pass
 
-    # def mostrarResponsableTecnicoRT():
-    #     asdasd
+    def mostrarResponsableTecnicoRT():
+        pass
 
-    # def misRT():
-    #     asdas
-    # def new():
-    #     nosecomovergasehace
+    def esDisponible():
+        pass
 
-    # def mostrarResponsableTecnicoRT():
-    #     asdasd
+    def mostrarResponsableTecnicoRT():
+        pass
 
-    # def misRT():
-    #     asdas
+    def misRT():
+        pass
