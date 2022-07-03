@@ -11,3 +11,8 @@ class Usuario:
 
     def getUsuario():
         pass
+
+
+USR1 = Usuario("Luis", 123, True)
+USR2 = Usuario("Gustavo", 456, True)
+USR3 = Usuario("Juan", 789, True)

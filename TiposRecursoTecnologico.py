@@ -10,3 +10,10 @@ class TipoRecursoTecnologico:
 
     def getDescripcion(self):
         return self.descripcion
+
+
+# Creamos tipos recurso tecnologicos
+TRT1 = TipoRecursoTecnologico(
+    "Microscopio Chico", "Microscopio de medicion")
+TRT2 = TipoRecursoTecnologico(
+    "Balanza Marca Shidmazu,Modelo TXB622L", "Balanza de precision")

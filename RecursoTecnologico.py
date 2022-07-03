@@ -1,8 +1,8 @@
-from Marca import Marca
-from Modelo import Modelo
-from CambioEstadoRT import CambioEstadoRT
-from TiposRecursoTecnologico import TipoRecursoTecnologico
-from Turno import Turno
+from Marca import *
+from Modelo import *
+from CambioEstadoRT import *
+from TiposRecursoTecnologico import *
+from Turno import *
 
 
 class RecursoTecnologico:
@@ -28,16 +28,25 @@ class RecursoTecnologico:
             cambioActual = self.cambioEstadoRT
             return cambioActual.esDisponible()
 
-    def getNroRT(self):
+    def getNroRT(self) -> int:
         return self.nroRT
 
     def mostrarDatosRT(self):
-        nroRT = self.getNroRT
+        nroRT = self.getNroRT()
         marca, modelo = Marca.getDatosDeRT(self.modelo)
-        TipoRecursoTecnologicoN = TipoRecursoTecnologico.getNombre()
-        TipoRecursoTecnologicoD = TipoRecursoTecnologico.getDescripcion()
+        TipoRecursoTecnologicoN = self.tipoRecursoTecnologico.getNombre()
+        TipoRecursoTecnologicoD = self.tipoRecursoTecnologico.getDescripcion()
 
         return nroRT, TipoRecursoTecnologicoN, TipoRecursoTecnologicoD, marca, modelo
 
     def esConfirmadoOPendiente():
         pass
+
+
+RT1 = RecursoTecnologico(111, "12-10-2022", "imagen", "2 mes",
+                         "15 dias", "fraccion: 15min", CAMBIO_ESTADO_RT1, TUR1, TRT1, MOD1)
+RT2 = RecursoTecnologico(222, "13-10-2022", "imagen", "2 mes",
+                         "15 dias", "fraccion: 15min", CAMBIO_ESTADO_RT2, TUR2, TRT2, MOD2)
+RT3 = RecursoTecnologico(333, "14-10-2022", "imagen", "2 mes",
+                         "15 dias", "fraccion: 15min", CAMBIO_ESTADO_RT3, TUR3, TRT1, MOD1)
+LISTA_RT = [RT1, RT2, RT3]

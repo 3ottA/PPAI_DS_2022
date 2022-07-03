@@ -1,4 +1,4 @@
-from Usuario import Usuario
+from Usuario import *
 
 
 class Sesion:
@@ -12,3 +12,9 @@ class Sesion:
 
     def __str__(self):
         return "Sesion: Desde:"+str(self.fechaInicio)+"hasta: "+str(self.fechaFin)+"\n"+self.usr.__str__()
+
+
+# Usucarios en Sesion
+SESION1 = Sesion(1, 5, USR1)
+SESION2 = Sesion(1, 5, USR2)
+SESION3 = Sesion(1, 5, USR3)

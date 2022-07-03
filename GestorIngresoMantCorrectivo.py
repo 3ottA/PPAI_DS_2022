@@ -1,12 +1,12 @@
-from CambioEstadoRT import CambioEstadoRT
-from PersonalCientifico import PersonalCientifico
-from Sesion import Sesion
-from TiposRecursoTecnologico import TipoRecursoTecnologico
+from CambioEstadoRT import *
+from PersonalCientifico import *
+from Sesion import *
+from TiposRecursoTecnologico import *
 from Usuario import Usuario
-from RecursoTecnologico import RecursoTecnologico
-from AsignacionResponsableTecnicoRT import AsignacionResponsableTecnicoRT
-from Estado import Estado
-from AsignacionCientificoDelCI import AsignacionCientificoDelCI
+from RecursoTecnologico import *
+from AsignacionResponsableTecnicoRT import *
+from Estado import *
+from AsignacionCientificoDelCI import *
 from Bd import *
 
 
@@ -26,11 +26,12 @@ class GestorIngresoMantCorrectivo:
             if personal.esTuUsuario(usuarioActual):
                 return personal
 
-    def buscarRecursoTecnologico():
+    def buscarRecursoTecnologico(self, respActual):
         recursosDisponiblesDeRT = []
         for asignacion in LISTA_ART:
             recursosDisponiblesDeRT.append(
-                asignacion.buscarRecursoDisponible())
+                asignacion.buscarRecursoDisponible(respActual))
+            # print(recursosDisponiblesDeRT)
         return recursosDisponiblesDeRT
 
     def identificarEmpleadoLogueado(self) -> Sesion:

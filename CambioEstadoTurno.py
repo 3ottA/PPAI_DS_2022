@@ -1,4 +1,4 @@
-from Estado import Estado
+from Estado import *
 
 
 class CambioEstadoTurno:
@@ -8,3 +8,10 @@ class CambioEstadoTurno:
 
     def esConfirmadoOPendiente():
         pass
+
+
+# CREAMOS CAMBIOS DE ESTADOS TURNO
+CAMBIO_ESTADO_T1 = CambioEstadoTurno(1, None, ESTADO1)
+CAMBIO_ESTADO_T2 = CambioEstadoTurno(6, None, ESTADO2)
+CAMBIO_ESTADO_T3 = CambioEstadoTurno(1, 2, ESTADO4)
+CAMBIO_ESTADO_T4 = CambioEstadoTurno(1, 2, ESTADO4)

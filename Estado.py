@@ -7,11 +7,18 @@ class Estado:
         self.esReservable = esReservable
         self.esCancelable = esCancelable
 
-    def esDisponible(self):
+    def esDisponible(self) -> bool:
         return self.nombre == "Disponible"
 
     def esConfirmadoOPendiente():
         pass
 
 
-# Confirmados,Pendientes,Disponible
+# Creamos los Estados
+ESTADO1 = Estado("Confirmado", "Turno Confirmado", "Turno", False, True)
+ESTADO2 = Estado("Pendientes", "Turno es Pendiente", "Turno", False, True)
+ESTADO3 = Estado("Disponible", "El Recurso esta Disponible",
+                 "Recurso", True, False)
+ESTADO4 = Estado("Finalizado", "Turno Finalizado", "Turno", False, False)
+ESTADO5 = Estado("NoDisponible", "El Recurso no esta Disponible",
+                 "Recurso", False, False)

@@ -1,5 +1,5 @@
 
-from Estado import Estado
+from Estado import *
 
 
 class CambioEstadoRT:
@@ -9,14 +9,12 @@ class CambioEstadoRT:
         self.estado = estado
 
     def esEstadoActual(self) -> bool:
-
-        return self.fechaHoraDesde <= 3 <= self.fechaHoraHasta
+        return self.fechaHoraHasta == None
 
     def mostrarResponsableTecnicoRT():
         pass
 
     def esDisponible(self) -> bool:
-
         return self.estado.esDisponible()
 
     def mostrarResponsableTecnicoRT():
@@ -24,3 +22,9 @@ class CambioEstadoRT:
 
     def misRT():
         pass
+
+
+# Creamos Cambios de estado
+CAMBIO_ESTADO_RT1 = CambioEstadoRT(1, None, ESTADO3)
+CAMBIO_ESTADO_RT2 = CambioEstadoRT(1, None, ESTADO3)
+CAMBIO_ESTADO_RT3 = CambioEstadoRT(1, 5, ESTADO5)
