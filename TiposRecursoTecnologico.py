@@ -14,6 +14,6 @@ class TipoRecursoTecnologico:
 
 # Creamos tipos recurso tecnologicos
 TRT1 = TipoRecursoTecnologico(
-    "Microscopio Chico", "Microscopio de medicion")
+    "Microscopio de medicion", "No se")
 TRT2 = TipoRecursoTecnologico(
-    "Balanza Marca Shidmazu,Modelo TXB622L", "Balanza de precision")
+    "Balanza de precision", "Medicion que mide la medida mas precisa medible")

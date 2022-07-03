@@ -26,7 +26,7 @@ class AsignacionResponsableTecnicoRT:
             if esDisponible:
                 print("mostrarDatos")
                 NroRT, tipoRecursoNombre, tipoRecursoDescripcion, marca, modelo = self.recursos.mostrarDatosRT()
-                return NroRT, tipoRecursoNombre, tipoRecursoDescripcion, marca, modelo
+                return [NroRT, tipoRecursoNombre, tipoRecursoDescripcion, marca, modelo]
 
     def validarResponsableActual(self, hoy: int, rtActual: PersonalCientifico) -> bool:
         return rtActual == self.responsableTecnico and self.fechaHoraDesde <= hoy <= self.fechaHoraHasta

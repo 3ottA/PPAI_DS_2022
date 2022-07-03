@@ -29,10 +29,14 @@ class GestorIngresoMantCorrectivo:
     def buscarRecursoTecnologico(self, respActual):
         recursosDisponiblesDeRT = []
         for asignacion in LISTA_ART:
-            recursosDisponiblesDeRT.append(
-                asignacion.buscarRecursoDisponible(respActual))
+            validado = asignacion.buscarRecursoDisponible(respActual)
+            if validado != None:
+                recursosDisponiblesDeRT.append(validado)
             # print(recursosDisponiblesDeRT)
         return recursosDisponiblesDeRT
+
+    def buscarTurnosConfirmadoPendiente(rtSeleccionado: RecursoTecnologico, fechaFin, razon):
+        return rtSeleccionado.esConfirmadoOPendiente(fechaFin)
 
     def identificarEmpleadoLogueado(self) -> Sesion:
         # busca la sesion Actual
@@ -51,7 +55,4 @@ class GestorIngresoMantCorrectivo:
         pass
 
     def tomarRazon():
-        pass
-
-    def buscarTurnosConfirmadoPendiente():
         pass

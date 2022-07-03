@@ -18,8 +18,8 @@ class PersonalCientifico:
         # Devuelve True o False dependiendo si los usuarios(Usuario actual con el Usuario del personal Seleccionado) son iguales
         return usr_actual == self.usr
 
-    def getCientifico():
-        pass
+    def getCientifico(self):
+        return self.nombre+" "+self.apellido
 
     def __str__(self) -> str:
         return "Legajo: "+self.legajo + " Nombre: "+self.nombre + " Apellido: "+self.apellido

@@ -1,13 +1,14 @@
+
 from Marca import *
 from Modelo import *
 from CambioEstadoRT import *
 from TiposRecursoTecnologico import *
-from Turno import *
+from Turno import LISTA_TURNO, TRT1, TRT2, TRT3
 
 
 class RecursoTecnologico:
     def __init__(self, nroRT: int, fecha: str, imagen, periodicidadMantenimientoPrev: str, duracionMantenimientoPrev: int,
-                 fraccionHorarioTurnos: str, cambioEstadoRT: CambioEstadoRT, turno: Turno, tipoRecursoTecnologico: TipoRecursoTecnologico, modelo: Modelo):
+                 fraccionHorarioTurnos: str, cambioEstadoRT: CambioEstadoRT, tipoRecursoTecnologico: TipoRecursoTecnologico, modelo: Modelo):
         self.nroRT = nroRT
         self.fecha = fecha
         self.imagen = imagen
@@ -15,12 +16,11 @@ class RecursoTecnologico:
         self.duracionMantenimientoPrev = duracionMantenimientoPrev
         self.fraccionHorarioTurnos = fraccionHorarioTurnos
         self.cambioEstadoRT = cambioEstadoRT
-        self.turno = turno
         self.tipoRecursoTecnologico = tipoRecursoTecnologico
         self.modelo = modelo
         pass
 
-    def estasEnEstadoDisponible(self,):
+    def estasEnEstadoDisponible(self):
         return self.buscarEstadoActual()
 
     def buscarEstadoActual(self):
@@ -39,14 +39,17 @@ class RecursoTecnologico:
 
         return nroRT, TipoRecursoTecnologicoN, TipoRecursoTecnologicoD, marca, modelo
 
-    def esConfirmadoOPendiente():
+    def esConfirmadoOPendiente(self, fechaFin):
+        for turno in LISTA_TURNO:
+            turno.buscarTurnoConfirmadoPendiente(self, fechaFin)
+
         pass
 
 
 RT1 = RecursoTecnologico(111, "12-10-2022", "imagen", "2 mes",
-                         "15 dias", "fraccion: 15min", CAMBIO_ESTADO_RT1, TUR1, TRT1, MOD1)
+                         "15 dias", "fraccion: 15min", CAMBIO_ESTADO_RT1, TRT1, MOD1)
 RT2 = RecursoTecnologico(222, "13-10-2022", "imagen", "2 mes",
-                         "15 dias", "fraccion: 15min", CAMBIO_ESTADO_RT2, TUR2, TRT2, MOD2)
+                         "15 dias", "fraccion: 15min", CAMBIO_ESTADO_RT2, TRT2, MOD2)
 RT3 = RecursoTecnologico(333, "14-10-2022", "imagen", "2 mes",
-                         "15 dias", "fraccion: 15min", CAMBIO_ESTADO_RT3, TUR3, TRT1, MOD1)
+                         "15 dias", "fraccion: 15min", CAMBIO_ESTADO_RT3, TRT1, MOD1)
 LISTA_RT = [RT1, RT2, RT3]

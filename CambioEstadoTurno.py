@@ -5,9 +5,13 @@ class CambioEstadoTurno:
     def __init__(self, fechaHoraDesde: int, fechaHoraHasta: int, estado: Estado):
         self.fechaHoraDesde = fechaHoraDesde
         self.fechaHoraHasta = fechaHoraHasta
+        self.estado = estado
 
-    def esConfirmadoOPendiente():
-        pass
+    def esConfirmadoOPendiente(self) -> bool:
+        return self.estado.esConfirmadoOPendiente()
+
+    def esEstadoActual(self):
+        return self.fechaHoraHasta == None
 
 
 # CREAMOS CAMBIOS DE ESTADOS TURNO
