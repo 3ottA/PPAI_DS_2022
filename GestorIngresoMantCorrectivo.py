@@ -1,19 +1,12 @@
+from CambioEstadoRT import CambioEstadoRT
 from PersonalCientifico import PersonalCientifico
 from Sesion import Sesion
+from TiposRecursoTecnologico import TipoRecursoTecnologico
 from Usuario import Usuario
-# Creamos Los usuarios para nuestros personales cientificos
-USR1 = Usuario("Luis", 123, True)
-USR2 = Usuario("Gustavo", 456, True)
-USR3 = Usuario("Juan", 789, True)
-SESION1 = Sesion(1, 5, USR1)
-# Crearmos una n cantidad de Personales Cientificos para corroborrar con el Usuario
-PERSONAL1 = PersonalCientifico("123", "Luis", "Spinetta", "43065215",
-                               "escualadeluis@hotmai.com", "luisUwU@yahoo.com", "15415415400", USR3)
-PERSONAL2 = PersonalCientifico("456", "Gustavo", "Cerati", "43065215",
-                               "EscuelaDeRock@hotmai.com", "SoyElMasCapo123@yahoo.com", "154856741", USR2)
-PERSONAL3 = PersonalCientifico("789", "Juan", "Perez", "43065216",
-                               "juanperez@hotmai.com", "perezjuan@hotmai.com", "154856741", USR1)
-LISTA_PERSONAL = [PERSONAL1, PERSONAL2, PERSONAL3]
+from RecursoTecnologico import RecursoTecnologico
+from AsignacionResponsableTecnicoRT import AsignacionResponsableTecnicoRT
+from Estado import Estado
+from AsignacionCientificoDelCI import AsignacionCientificoDelCI
 
 
 class GestorIngresoMantCorrectivo:
@@ -32,12 +25,16 @@ class GestorIngresoMantCorrectivo:
             if personal.esTuUsuario(usuarioActual):
                 return personal
 
+    def buscarRecursoTecnologico():
+        recursosDisponiblesDeRT = []
+        for asignacion in LISTA_ART:
+            if asignacion.buscarRecursoDisponible():  # True o False
+                recursosDisponiblesDeRT.append(asignacion)
+        pass
+
     def identificarEmpleadoLogueado(self) -> Sesion:
         # busca la sesion Actual
         return SESION1  # retorna la sesion actual
-
-    def buscarRecursoTecnologico():
-        pass
 
     def agruparPorTipoRecurso():
         pass

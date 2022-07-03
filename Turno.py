@@ -1,10 +1,13 @@
+from AsignacionCientificoDelCI import AsignacionCientificoDelCI
+from CambioEstadoTurno import CambioEstadoTurno
+
+
 class Turno:
-    def __init__(self, fechaGeneracion, diaSemana, fechaHoraInicio, fechaHoraFin, actual, cambioEstadoFin):
+    def __init__(self, fechaGeneracion: int, diaSemana: int, fechaHoraInicio: int, fechaHoraFin: int, cambioEstadoFin: CambioEstadoTurno):
         self.fechaGeneracion = fechaGeneracion
         self.diaSemana = diaSemana
         self.fechaHoraInicio, fechaHoraInicio
         self.fechaHoraFin = fechaHoraFin
-        self.actual = actual
         self.cambioEstadoFin = cambioEstadoFin
 
     def obtenerEstadoActual():

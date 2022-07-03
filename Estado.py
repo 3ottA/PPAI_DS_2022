@@ -1,6 +1,6 @@
 
 class Estado:
-    def __init__(self, nombre, descripcion, ambito, esReservable, esCancelable):
+    def __init__(self, nombre: str, descripcion: str, ambito: str, esReservable: bool, esCancelable: bool):
         self.nombre = nombre
         self.descripcion = descripcion
         self.ambito = ambito
@@ -10,5 +10,8 @@ class Estado:
     def esDisponible():
         pass
 
-    def esDisponibleOPendiente():
+    def esConfirmadoOPendiente():
         pass
+
+
+# Confirmados,Pendientes,Disponible
