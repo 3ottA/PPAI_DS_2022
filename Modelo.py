@@ -3,5 +3,5 @@ class Modelo:
         self.nombre = nombre
         pass
 
-    def getDatosMarca():
-        pass
+    def getDatosModelo(self):
+        return self.nombre

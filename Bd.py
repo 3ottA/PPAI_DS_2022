@@ -9,9 +9,10 @@ from RecursoTecnologico import RecursoTecnologico
 from AsignacionResponsableTecnicoRT import AsignacionResponsableTecnicoRT
 from Estado import Estado
 from CambioEstadoTurno import CambioEstadoTurno
-from Turno import Turno
+from Turno import *
 from AsignacionCientificoDelCI import AsignacionCientificoDelCI
 
+FECHA_HOY = 3
 # Creamos Los usuarios para nuestros personales cientificos
 USR1 = Usuario("Luis", 123, True)
 USR2 = Usuario("Gustavo", 456, True)
@@ -56,25 +57,25 @@ ACT2 = AsignacionCientificoDelCI(6, 8, TUR2, PERSONAL3)
 LISTA_ACT = [ACT1, ACT2, ]
 # Creamos tipos recurso tecnologicos
 TRT1 = TipoRecursoTecnologico(
-    "Microscopio Marca Nikon Modelo MM-400/800", "Microscopio de medicion")
+    "Microscopio Chico", "Microscopio de medicion")
 TRT2 = TipoRecursoTecnologico(
     "Balanza Marca Shidmazu,Modelo TXB622L", "Balanza de precision")
-#Creamos un Modelo
+# Creamos un Modelo
 MOD1 = Modelo("MM-400/800")
 MOD2 = Modelo("TXB622L")
 #  Creamos Marca
 MAR1 = Marca("Nikon", MOD1)
 MAR2 = Marca("Shidmazu", MOD2)
 # Creamos Recuros tecnologicos
-RT1 = RecursoTecnologico(111, "12-10-2022", "imagen", "2 mes", "15 dias","fraccion ", cambioEstadoRT: CambioEstadoRT, turno: Turno, tipoRecursoTecnologico: TipoRecursoTecnologico, modelo: Modelo, Mantenimiento: Mantenimiento)
-RT2 = RecursoTecnologico(222, "13-10-2022", "imagen", "2 mes", 15, "30 min")
-RT3 = RecursoTecnologico(333, "14-10-2022", "imagen", "1 mes", 20, "30 min")
-RT4 = RecursoTecnologico(444, "15-10-2022", "imagen", "1 mes", 30, "30 min")
-LISTA_RT = [RT1, RT2, RT3, RT4]
+RT1 = RecursoTecnologico(111, "12-10-2022", "imagen", "2 mes",
+                         "15 dias", "fraccion: 15min", CAMBIO_ESTADO_RT1, TUR1, TRT1, MOD1)
+RT2 = RecursoTecnologico(222, "13-10-2022", "imagen", "2 mes",
+                         "15 dias", "fraccion: 15min", CAMBIO_ESTADO_RT2, TUR2, TRT2, MOD2)
+RT3 = RecursoTecnologico(333, "14-10-2022", "imagen", "2 mes",
+                         "15 dias", "fraccion: 15min", CAMBIO_ESTADO_RT3, TUR3, TRT1, MOD1)
+LISTA_RT = [RT1, RT2, RT3]
 # Creamos asignaciones
 ART1 = AsignacionResponsableTecnicoRT(1, 5, RT1, PERSONAL1)
 ART2 = AsignacionResponsableTecnicoRT(1, 5, RT2, PERSONAL1)
 ART3 = AsignacionResponsableTecnicoRT(6, 10, RT3, PERSONAL2)
-ART4 = AsignacionResponsableTecnicoRT(11, 15, RT4, PERSONAL3)
-LISTA_ART = [ART1, ART2, ART3, ART4]
-#
+LISTA_ART = [ART1, ART2, ART3]

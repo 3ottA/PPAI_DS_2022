@@ -7,8 +7,11 @@ class PantallaIngresoRT:
         pass
 
     def registrarIngresoCorrectivo(self):
-        gestorIngresoRespTecRT = GestorIngresoMantCorrectivo().opcionRegistrarIngreso()
+        gestor = GestorIngresoMantCorrectivo()
+        gestorIngresoRespTecRT = gestor.opcionRegistrarIngreso()
         print(str(gestorIngresoRespTecRT))
+        buscarRTDisponible = gestor.buscarRecursoTecnologico()
+        print(buscarRTDisponible)
 
     def habilitarVentana():
         pass

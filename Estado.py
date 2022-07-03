@@ -7,8 +7,8 @@ class Estado:
         self.esReservable = esReservable
         self.esCancelable = esCancelable
 
-    def esDisponible():
-        pass
+    def esDisponible(self):
+        return self.nombre == "Disponible"
 
     def esConfirmadoOPendiente():
         pass

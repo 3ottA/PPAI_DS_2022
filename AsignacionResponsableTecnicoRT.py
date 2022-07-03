@@ -1,7 +1,6 @@
+from Bd import FECHA_HOY
 from PersonalCientifico import PersonalCientifico
 from RecursoTecnologico import RecursoTecnologico
-
-FECHA_HOY = 3
 
 
 class AsignacionResponsableTecnicoRT:
@@ -27,10 +26,7 @@ class AsignacionResponsableTecnicoRT:
             esDisponible = self.recursos.estasEnEstadoDisponible()
             if esDisponible:
                 NroRT, tipoRecursoNombre, tipoRecursoDescripcion, marca, modelo = self.recursos.mostrarDatosRT()
-                marca = self.recursos.
-                datosRTDisponible = [
-                    self.recursos.getNroRT, tipoRecurso.getNombre(), tipoRecurso.getDescripcion(), ]
-        pass
+                return NroRT, tipoRecursoNombre, tipoRecursoDescripcion, marca, modelo
 
     def validarResponsableActual(self, hoy: int, rtActual: PersonalCientifico) -> bool:
 

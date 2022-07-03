@@ -7,6 +7,7 @@ from RecursoTecnologico import RecursoTecnologico
 from AsignacionResponsableTecnicoRT import AsignacionResponsableTecnicoRT
 from Estado import Estado
 from AsignacionCientificoDelCI import AsignacionCientificoDelCI
+from Bd import *
 
 
 class GestorIngresoMantCorrectivo:
@@ -28,9 +29,9 @@ class GestorIngresoMantCorrectivo:
     def buscarRecursoTecnologico():
         recursosDisponiblesDeRT = []
         for asignacion in LISTA_ART:
-            if asignacion.buscarRecursoDisponible():  # True o False
-                recursosDisponiblesDeRT.append(asignacion)
-        pass
+            recursosDisponiblesDeRT.append(
+                asignacion.buscarRecursoDisponible())
+        return recursosDisponiblesDeRT
 
     def identificarEmpleadoLogueado(self) -> Sesion:
         # busca la sesion Actual

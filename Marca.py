@@ -6,8 +6,9 @@ class Marca:
         self.nombre = nombre
         self.modelos = modelos
 
-    def getDatosDeRT():
-        pass
+    def getDatosDeRT(modelo: Modelo):
+
+        return self.getMarca, modelo.getDatosModelo()
 
     def getMarca(self):
         return self.nombre
