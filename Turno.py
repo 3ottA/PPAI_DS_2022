@@ -3,10 +3,11 @@
 #from AsignacionCientificoDelCI import LISTA_ACT
 from CambioEstadoTurno import *
 from RecursoTecnologico import *
+from AsignacionCientificoDelCI import *
 
 
 class Turno:
-    def __init__(self, fechaGeneracion: int, diaSemana: str, fechaHoraInicio: int, fechaHoraFin: int, CambioEstadoTurno: CambioEstadoTurno, rt: RecursoTecnologico) -> None:
+    def __init__(self, fechaGeneracion: int, diaSemana: str, fechaHoraInicio: int, fechaHoraFin: int, CambioEstadoTurno: CambioEstadoTurno, rt: RecursoTecnologico):
         self.fechaGeneracion = fechaGeneracion
         self.diaSemana = diaSemana
         self.fechaHoraInicio = fechaHoraInicio
@@ -25,11 +26,13 @@ class Turno:
             cientifico = asignacion.conocerCientificoAsignado(self)
         return [cientifico, fecInicio, fecFin]
 
-    def getFechaHoraInicio():
-        pass
+    def getFechaHoraInicio(self):
+        return self.fechaHoraInicio
+        
 
-    def getFechaHoraFin():
-        pass
+    def getFechaHoraFin(self):
+        return self.fechaHoraFin
+        
 
     def mostrarTurno():
         pass
@@ -38,20 +41,25 @@ class Turno:
 
         pass
 
-    def buscarTurnoConfirmadoPendiente(self, rtSeleccionado: RecursoTecnologico, fechaFin):
-
-        if self.rt == rtSeleccionado:
-            if fechaFin > self.fechaHoraFin:
-                if self.CambioEstadoTurno.esEstadoActual():
-                    print("Turno Actual")
-                    if self.CambioEstadoTurno.esConfirmadoOPendiente():
-                        print("Confirmado")
-                        return self.generarGrillaTurnosPendienteYConfirmado()
-                    else:
-                        pass
-            else:
-                print("No existen turnos dentro del Plazo de Mantenimiento")
-                pass
+    def buscarTurnoConfirmadoPendiente(rtSeleccionado: RecursoTecnologico, fechaFin: int):
+        print("Entro")
+        for turno in LISTA_TURNO:
+            print("Entro Al For")
+            print(rtSeleccionado)
+            print(turno.rt)
+            if turno.rt == rtSeleccionado:
+                if fechaFin > turno.fechaHoraFin:
+                    if turno.CambioEstadoTurno.esEstadoActual():
+                        print("Turno Actual")
+                        if turno.CambioEstadoTurno.esConfirmadoOPendiente():
+                            print("Confirmado")
+                            self = turno
+                            return self.generarGrillaTurnosPendienteYConfirmado()
+                        else:
+                            pass
+                else:
+                    print("No existen turnos dentro del Plazo de Mantenimiento")
+                    pass
 
 
 # CREAMOS LOS TURNOS

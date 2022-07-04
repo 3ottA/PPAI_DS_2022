@@ -3,7 +3,6 @@ from Marca import *
 from Modelo import *
 from CambioEstadoRT import *
 from TiposRecursoTecnologico import *
-from Turno import LISTA_TURNO, TRT1, TRT2, TRT3
 
 
 class RecursoTecnologico:
@@ -42,8 +41,8 @@ class RecursoTecnologico:
     def esConfirmadoOPendiente(self, fechaFin):
         for turno in LISTA_TURNO:
             turno.buscarTurnoConfirmadoPendiente(self, fechaFin)
-
         pass
+
 
 
 RT1 = RecursoTecnologico(111, "12-10-2022", "imagen", "2 mes",

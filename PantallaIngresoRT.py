@@ -1,5 +1,6 @@
 import pandas as pd
 from GestorIngresoMantCorrectivo import GestorIngresoMantCorrectivo
+from RecursoTecnologico import *
 
 
 class PantallaIngresoRT:
@@ -24,20 +25,19 @@ class PantallaIngresoRT:
                 if len(rtSeleccionado) != 0:
                     print("Recurso seleccionado:\n",
                           rtSeleccionado)
-
-                    fechaFin = input("Definir una FechaFin : ")
-                    if fechaFin.isnumeric():
-                        ingresarRazon = input(
-                            "Ingresar razon de mantenimiento: ")
-                        break
-                    else:
-                        print("por favor ingresar fecha correcta")
+                    fechaFin = int(input("Definir una FechaFin : "))
+                    #if fechaFin.isnumeric():
+                    ingresarRazon = input(
+                        "Ingresar razon de mantenimiento: ")
+                    break
+                    #else:
+                    #    print("por favor ingresar fecha correcta")
                 else:
                     print("No hay RT disponible con el Numero : ", seleccion)
             else:
                 print("por favor ingresar Numero correcto")
-        turnosConfirmadoPendiente = gestor.buscarTurnosConfirmadoPendiente(
-            rtSeleccionado, fechaFin, ingresarRazon)
+        seleccion = RT2
+        turnosConfirmadoPendiente = gestor.buscarTurnosConfirmadoPendiente(seleccion, fechaFin)
         print(turnosConfirmadoPendiente)
 
     def habilitarVentana():

@@ -8,6 +8,7 @@ from AsignacionResponsableTecnicoRT import *
 from Estado import *
 from AsignacionCientificoDelCI import *
 from Bd import *
+from Turno import *
 
 
 class GestorIngresoMantCorrectivo:
@@ -35,8 +36,8 @@ class GestorIngresoMantCorrectivo:
             # print(recursosDisponiblesDeRT)
         return recursosDisponiblesDeRT
 
-    def buscarTurnosConfirmadoPendiente(rtSeleccionado: RecursoTecnologico, fechaFin, razon):
-        return rtSeleccionado.esConfirmadoOPendiente(fechaFin)
+    def buscarTurnosConfirmadoPendiente(self,rtSeleccionado: RecursoTecnologico, fechaFin: int):
+        return Turno.buscarTurnoConfirmadoPendiente(rtSeleccionado, fechaFin)
 
     def identificarEmpleadoLogueado(self) -> Sesion:
         # busca la sesion Actual
