@@ -84,8 +84,8 @@ class PantallaIngresoRT:
 
     def solicitarOpcionDeNotificacion(self, gestor: GestorIngresoMantCorrectivo):
         while True:
-            OpcionesNoti = int(input(
-                "Seleccione una opcion de notificacion: \n 1. Email \n 2. SMS \n 3. Whatsapp \n"))
+            OpcionesNoti = input(
+                "Seleccione una opcion de notificacion: \n 1. Email \n 2. SMS \n 3. Whatsapp \n")
             if OpcionesNoti == 1:
                 nombreNot = "Email"
                 break
@@ -97,6 +97,7 @@ class PantallaIngresoRT:
                 break
             else:
                 nombreNot = "Email"
+                break
         print("Seleccion : ", nombreNot)
         gestor.buscarOpcionesNotificacion(nombreNot)
         pass
