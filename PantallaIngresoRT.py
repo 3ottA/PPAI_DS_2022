@@ -1,3 +1,4 @@
+import copy
 import pandas as pd
 from GestorIngresoMantCorrectivo import GestorIngresoMantCorrectivo
 from RecursoTecnologico import *
@@ -10,11 +11,11 @@ class PantallaIngresoRT:
     def registrarIngresoCorrectivo(self):
         gestor = GestorIngresoMantCorrectivo()
         gestorIngresoRespTecRT = gestor.opcionRegistrarIngreso()
-        print(str(gestorIngresoRespTecRT))
+        # print(str(gestorIngresoRespTecRT))
         buscarRTDisponible = gestor.buscarRecursoTecnologico(
             gestorIngresoRespTecRT)
         # rtObjeto = buscarRTDisponible.pop(-1)
-        print(buscarRTDisponible)
+        # print(buscarRTDisponible)
         print("\n")
         tabla = pd.DataFrame(buscarRTDisponible, columns=[
                              "NumeroRT", "Tipo de Recurso Nombre", "Tipo de Recurso Desc", "Marca", "Modelo", "objeto"],)
@@ -22,29 +23,52 @@ class PantallaIngresoRT:
             "Tipo de Recurso Desc"))
 
         while True:
-            # input("Seleccione el RT ingresando su NumeroRT : ")
-            seleccion = "222"
+            seleccion = input("Seleccione el RT ingresando su NumeroRT : ")
             if seleccion.isnumeric():
                 rtSeleccionado = tabla.loc[tabla['NumeroRT'] == int(seleccion)]
                 if len(rtSeleccionado) != 0:
                     print("Recurso seleccionado:\n",
                           rtSeleccionado)
-                    fechaFin = int(11)  # int(input("Definir una FechaFin : "))
-                    # if fechaFin.isnumeric():
-                    # input( "Ingresar razon de mantenimiento: ")
-                    ingresarRazon = "asdasd"
-                    break
-                    # else:
-                    #    print("por favor ingresar fecha correcta")
+                    fechaFin = input("Definir una FechaFin : ")
+                    if fechaFin.isnumeric():
+                        ingresarRazon = input(
+                            "Ingresar razon de mantenimiento: ")
+                        break
+                    else:
+                        print("por favor ingresar fecha correcta")
                 else:
                     print("No hay RT disponible con el Numero : ", seleccion)
             else:
                 print("por favor ingresar Numero correcto")
+        gestor.tomarSeleccionFechaFin(int(fechaFin))
+        gestor.tomarRazon(ingresarRazon)
         seleccionado = rtSeleccionado.iloc[0]["objeto"]
-        print("Seleccionado", seleccionado)
+        gestor.tomarSeleccionRT(seleccionado)
+        #print("Seleccionado", seleccionado)
         turnosConfirmadoPendiente = gestor.buscarTurnosConfirmadoPendiente(
-            seleccionado, fechaFin)
-        print(turnosConfirmadoPendiente)
+            seleccionado)
+        listaTurnosCientificoCancelado = turnosConfirmadoPendiente.copy()
+        #print( listaTurnosCientificoCancelado)
+        datosPandas = copy.deepcopy(turnosConfirmadoPendiente)
+        for i in range(len(datosPandas)):
+            datosPandas[i][2] = datosPandas[i][2].getApellidoNombre()
+        # print(datosPandas)
+        tablaTurno = pd.DataFrame(datosPandas, columns=[
+            "DiaInicio", "DiaFin", "Cientifico", "objetoTurno"],)
+        print(tablaTurno.loc[:, tablaTurno.columns != "objetoTurno"].sort_values(
+            "Cientifico"))
+        inp = eval(
+            input("Desea Confirmar el ingreso a Mantenimiento?\n ingresar True o False: "))
+        # gestor.tomarConfirmacionIngreso(inp,datosPandas)
+        self.solicitarOpcionDeNotificacion(gestor)
+        #print("\nESTA es?", listaTurnosCientificoCancelado, "\n\n")
+        gestor.tomarConfirmacionDeIngreso(
+            inp, listaTurnosCientificoCancelado, seleccionado)
+        # if gestor.confirmacionIngreso == True:
+        #     print("A")
+        #     opNot =self.solicitarOpcionDeNotificacion(gestor)
+        # else:
+        #     print("No aceptado")
 
     def habilitarVentana():
         pass
@@ -52,17 +76,27 @@ class PantallaIngresoRT:
     def mostrarRecursosTecnologicos(self):
         pass
 
-    def tomarSeleccionRT():
-        pass
-
     def solicitarFechaFin():
-        pass
-
-    def tomarSeleccionFechaFin():
         pass
 
     def solicitarRazon():
         pass
 
-    def tomarRazon():
+    def solicitarOpcionDeNotificacion(self, gestor: GestorIngresoMantCorrectivo):
+        while True:
+            OpcionesNoti = int(input(
+                "Seleccione una opcion de notificacion: \n 1. Email \n 2. SMS \n 3. Whatsapp \n"))
+            if OpcionesNoti == 1:
+                nombreNot = "Email"
+                break
+            elif OpcionesNoti == 2:
+                nombreNot = "SMS"
+                break
+            elif OpcionesNoti == 3:
+                nombreNot = "Whatsapp"
+                break
+            else:
+                nombreNot = "Email"
+        print("Seleccion : ", nombreNot)
+        gestor.buscarOpcionesNotificacion(nombreNot)
         pass

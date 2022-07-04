@@ -23,6 +23,12 @@ class CambioEstadoRT:
     def misRT():
         pass
 
+    def setFechaHoraHasta(self, fechaHoraHasta: int) -> None:
+        self.fechaHoraHasta = fechaHoraHasta
+
+    def __str__(self) -> str:
+        return str(self.fechaHoraDesde)+" "+str(self.fechaHoraHasta)+" Estado:"+str(self.estado)
+
 
 # Creamos Cambios de estado
 CAMBIO_ESTADO_RT1 = CambioEstadoRT(1, None, ESTADO3)

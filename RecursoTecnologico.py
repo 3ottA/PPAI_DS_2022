@@ -38,12 +38,25 @@ class RecursoTecnologico:
 
         return nroRT, TipoRecursoTecnologicoN, TipoRecursoTecnologicoD, marca, modelo
 
+    def AsignarConIngresoEnMantCorrectivo(self, fechaHoy, punteroEstadoRT):
+        self.crearCambioEstadoRT(fechaHoy, punteroEstadoRT)
+
+    def crearCambioCorrectivo(self):
+        self.cambioEstadoRT.crearCambioCorrectivo()
+
+    def crearCambioEstadoRT(self, fechaHoy, punteroEstadoRT):
+        self.cambioEstadoRT.setFechaHoraHasta(fechaHoy)
+        self.cambioEstadoRT = CambioEstadoRT(fechaHoy, None, punteroEstadoRT)
+        # print(str(self))
+
+    def __str__(self) -> str:
+        return " | Recurso CAMBIO: NroRT "+str(self.nroRT)+" Fecha "+str(self.fecha)+"| CambioEstado"+str(self.cambioEstadoRT.estado)+" | TipoRt: "+str(self.tipoRecursoTecnologico.getNombre)+" ModeloRT: "+str(self.modelo.getDatosModelo)
+
+
     # def esConfirmadoOPendiente(self, fechaFin):
     #     for turno in LISTA_TURNO:
     #         turno.buscarTurnoConfirmadoPendiente(self, fechaFin)
     #     pass
-
-
 RT1 = RecursoTecnologico(111, "12-10-2022", "imagen", "2 mes",
                          "15 dias", "fraccion: 15min", CAMBIO_ESTADO_RT1, TRT1, MOD1)
 RT2 = RecursoTecnologico(222, "13-10-2022", "imagen", "2 mes",

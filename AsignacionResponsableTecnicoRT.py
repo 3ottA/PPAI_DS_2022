@@ -17,19 +17,22 @@ class AsignacionResponsableTecnicoRT:
 
     def buscarRecursoDisponible(self, responsableTecnicoActual: PersonalCientifico):
         # Valida que Hoy el recurso esta disponible
-        print("Validar")
+
         esValidado = self.validarResponsableActual(
             FECHA_HOY, responsableTecnicoActual)
         if esValidado:  # laValidacion fue exitosa
-            print("esDisponible")
+
             esDisponible = self.recursos.estasEnEstadoDisponible()
             if esDisponible:
-                print("mostrarDatos")
+
                 NroRT, tipoRecursoNombre, tipoRecursoDescripcion, marca, modelo = self.recursos.mostrarDatosRT()
                 return [NroRT, tipoRecursoNombre, tipoRecursoDescripcion, marca, modelo, self.recursos]
 
     def validarResponsableActual(self, hoy: int, rtActual: PersonalCientifico) -> bool:
         return rtActual == self.responsableTecnico and self.fechaHoraDesde <= hoy <= self.fechaHoraHasta
+
+    def __str__(self) -> str:
+        return str(self.fechaHoraDesde)+" "+str(self.fechaHoraHasta)+" "+self.recursos+" "+self.responsableTecnico
 
 
 ART1 = AsignacionResponsableTecnicoRT(1, 5, RT1, PERSONAL1)

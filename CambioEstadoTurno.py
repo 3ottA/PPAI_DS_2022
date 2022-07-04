@@ -13,6 +13,12 @@ class CambioEstadoTurno:
     def esEstadoActual(self):
         return self.fechaHoraHasta == None
 
+    def __str__(self) -> str:
+        return str(self.fechaHoraDesde)+" "+str(self.fechaHoraHasta)+" Estado:"+str(self.estado)
+
+    def setFechaHoraHasta(self, fechaHoraHasta):
+        self.fechaHoraHasta = fechaHoraHasta
+
 
 # CREAMOS CAMBIOS DE ESTADOS TURNO
 CAMBIO_ESTADO_T1 = CambioEstadoTurno(1, None, ESTADO1)

@@ -1,10 +1,6 @@
 
-
-#from AsignacionCientificoDelCI import LISTA_ACT
-
 from CambioEstadoTurno import *
 from RecursoTecnologico import *
-from AsignacionCientificoDelCI import *
 
 
 class Turno:
@@ -20,12 +16,20 @@ class Turno:
     def obtenerEstadoActual():
         pass
 
-    def generarGrillaTurnosPendienteYConfirmado(self):
+    def generarGrillaTurnosPendienteYConfirmado(self, LISTA_ACT):
         fecInicio = self.getFechaHoraInicio()
+        #print("fecInicio : ", fecInicio)
         fecFin = self.getFechaHoraFin()
+        #print("fecFin : ", fecFin)
+        tablaConCientifico = []
         for asignacion in LISTA_ACT:
-            cientifico = asignacion.conocerCientificoAsignado(self)
-        return [cientifico, fecInicio, fecFin]
+            #print("\nNuestro Turno: ", str(self))
+            #print("Asignacion : ", asignacion)
+            cientifico = asignacion.buscarCientificoAsignado(self)
+            if cientifico != None:
+                tablaConCientifico.append([fecInicio, fecFin, cientifico])
+        #print("tabla_enTurno", tablaConCientifico)
+        return tablaConCientifico
 
     def getFechaHoraInicio(self):
         return self.fechaHoraInicio
@@ -40,21 +44,35 @@ class Turno:
 
         pass
 
-    def buscarTurnoConfirmadoPendiente(self, rtSeleccionado: RecursoTecnologico, fechaFin: int):
-        print(rtSeleccionado)
-        print(self.rt)
+    def buscarTurnoConfirmadoPendiente(self, rtSeleccionado: RecursoTecnologico, fechaFin: int, LISTA_ACT):
         if self.rt == rtSeleccionado:
             if fechaFin > self.fechaHoraFin:
                 if self.CambioEstadoTurno.esEstadoActual():
-                    print("Turno Actual")
+                    #print("Turno Actual")
                     if self.CambioEstadoTurno.esConfirmadoOPendiente():
-                        print("Confirmado")
-                        return self.generarGrillaTurnosPendienteYConfirmado()
+                        # print("Confirmado")
+                        #print("tabla_enTurno", tablaConCientifico)
+                        return self.generarGrillaTurnosPendienteYConfirmado(LISTA_ACT)
                     else:
                         pass
             else:
                 print("No existen turnos dentro del Plazo de Mantenimiento")
                 pass
+
+    def cancelarPorMantCorrectivo(self, fechaHoy, punteroEstado):
+        self.crearCambioEstado(fechaHoy, punteroEstado)
+
+    def crearCambioEstado(self, fechaHoy, punteroEstado):
+        self.CambioEstadoTurno.setFechaHoraHasta(fechaHoy)
+        self.CambioEstadoTurno = CambioEstadoTurno(
+            fechaHoy, None, punteroEstado)
+        pass
+
+    def __str__(self) -> str:
+        return " | TURNO: Fecha Gen "+str(self.fechaGeneracion)+" Dia "+str(self.diaSemana)+" "+str(self.fechaHoraInicio)+" "+str(self.fechaHoraFin)+" | CambEst: "+str(self.CambioEstadoTurno)+" NroRT: "+str(self.rt.getNroRT())
+
+    def setEstado(self, estado: Estado):
+        self.estado = estado
 
 
 global TUR1

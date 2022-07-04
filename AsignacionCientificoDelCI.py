@@ -11,14 +11,15 @@ class AsignacionCientificoDelCI:
         pass
 
     def conocerCientificoAsignado(self, turnoActual) -> PersonalCientifico:
-
         if self.turno == turnoActual:
             return self.personal.getCientifico()
 
-    def buscarCientificoAsignado():
-        pass
+    def buscarCientificoAsignado(self, turnoActual):
+        if self.turno == turnoActual:
+            return self.personal
 
-
+    def __str__(self) -> str:
+        return "AsigDesde: "+str(self.fechaDesde)+" AsigHasta: "+str(self.fechaHasta)+" "+str(self.turno)+" "+str(self.personal)
 # Creamos asignaciones Cientifico
 # CREAMOS LOS TURNOS
 # TUR1 = Turno(1, "Martes", 1, 5, CAMBIO_ESTADO_T1, RT2)

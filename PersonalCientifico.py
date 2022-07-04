@@ -24,6 +24,12 @@ class PersonalCientifico:
     def __str__(self) -> str:
         return "Legajo: "+self.legajo + " Nombre: "+self.nombre + " Apellido: "+self.apellido
 
+    def getApellidoNombre(self):
+        return self.apellido+" "+self.nombre
+
+    def getEmailInstitucional(self):
+        return self.correoElectronicoInstitucional
+
 
 # Crearmos una n cantidad de Personales Cientificos para corroborrar con el Usuario
 PERSONAL1 = PersonalCientifico("123", "Luis", "Spinetta", "43065215",
