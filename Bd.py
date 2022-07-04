@@ -1,16 +1,4 @@
-# from CambioEstadoRT import CambioEstadoRT
-# from PersonalCientifico import PersonalCientifico
-# from Sesion import Sesion
-# from TiposRecursoTecnologico import TipoRecursoTecnologico
-# from Usuario import Usuario
-# from Modelo import Modelo
-# from Marca import Marca
-# from RecursoTecnologico import RecursoTecnologico
-# from AsignacionResponsableTecnicoRT import AsignacionResponsableTecnicoRT
-# from Estado import Estado
-# from CambioEstadoTurno import CambioEstadoTurno
-# from Turno import *
-# from AsignacionCientificoDelCI import AsignacionCientificoDelCI
+
 
 FECHA_HOY = 3
 # Creamos Los usuarios para nuestros personales cientificos

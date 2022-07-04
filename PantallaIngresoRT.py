@@ -13,31 +13,37 @@ class PantallaIngresoRT:
         print(str(gestorIngresoRespTecRT))
         buscarRTDisponible = gestor.buscarRecursoTecnologico(
             gestorIngresoRespTecRT)
+        # rtObjeto = buscarRTDisponible.pop(-1)
+        print(buscarRTDisponible)
         print("\n")
         tabla = pd.DataFrame(buscarRTDisponible, columns=[
-                             "NumeroRT", "Tipo de Recurso Nombre", "Tipo de Recurso Desc", "Marca", "Modelo"],)
-        print(tabla.sort_values("Tipo de Recurso Desc"))
+                             "NumeroRT", "Tipo de Recurso Nombre", "Tipo de Recurso Desc", "Marca", "Modelo", "objeto"],)
+        print(tabla.loc[:, tabla.columns != "objeto"].sort_values(
+            "Tipo de Recurso Desc"))
 
         while True:
-            seleccion = input("Seleccione el RT ingresando su NumeroRT : ")
+            # input("Seleccione el RT ingresando su NumeroRT : ")
+            seleccion = "222"
             if seleccion.isnumeric():
                 rtSeleccionado = tabla.loc[tabla['NumeroRT'] == int(seleccion)]
                 if len(rtSeleccionado) != 0:
                     print("Recurso seleccionado:\n",
                           rtSeleccionado)
-                    fechaFin = int(input("Definir una FechaFin : "))
-                    #if fechaFin.isnumeric():
-                    ingresarRazon = input(
-                        "Ingresar razon de mantenimiento: ")
+                    fechaFin = int(11)  # int(input("Definir una FechaFin : "))
+                    # if fechaFin.isnumeric():
+                    # input( "Ingresar razon de mantenimiento: ")
+                    ingresarRazon = "asdasd"
                     break
-                    #else:
+                    # else:
                     #    print("por favor ingresar fecha correcta")
                 else:
                     print("No hay RT disponible con el Numero : ", seleccion)
             else:
                 print("por favor ingresar Numero correcto")
-        seleccion = RT2
-        turnosConfirmadoPendiente = gestor.buscarTurnosConfirmadoPendiente(seleccion, fechaFin)
+        seleccionado = rtSeleccionado.iloc[0]["objeto"]
+        print("Seleccionado", seleccionado)
+        turnosConfirmadoPendiente = gestor.buscarTurnosConfirmadoPendiente(
+            seleccionado, fechaFin)
         print(turnosConfirmadoPendiente)
 
     def habilitarVentana():

@@ -38,11 +38,10 @@ class RecursoTecnologico:
 
         return nroRT, TipoRecursoTecnologicoN, TipoRecursoTecnologicoD, marca, modelo
 
-    def esConfirmadoOPendiente(self, fechaFin):
-        for turno in LISTA_TURNO:
-            turno.buscarTurnoConfirmadoPendiente(self, fechaFin)
-        pass
-
+    # def esConfirmadoOPendiente(self, fechaFin):
+    #     for turno in LISTA_TURNO:
+    #         turno.buscarTurnoConfirmadoPendiente(self, fechaFin)
+    #     pass
 
 
 RT1 = RecursoTecnologico(111, "12-10-2022", "imagen", "2 mes",
